@@ -1,0 +1,97 @@
+using System;
+
+namespace Midterm
+{
+    internal class Employee
+    {
+        private string firstName;
+        private string lastName;
+        private decimal monthlySalary;
+
+        public Employee(string fname, string lname, decimal salary)
+        {
+            firstName = fname;
+            lastName = lname;
+            MonthlySalary = salary;
+        }
+
+        public string FirstName
+        {
+            get
+            {
+                return firstName;
+            }
+            set
+            {
+                firstName = value;
+            }
+        }
+
+        public string LastName
+        {
+            get
+            {
+                return lastName;
+            }
+            set
+            {
+                lastName = value;
+            }
+        }
+
+        public decimal MonthlySalary
+        {
+            get
+            {
+                return monthlySalary;
+            }
+            set
+            {
+                if (0.00m <= value)
+                {
+                    monthlySalary = value;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+using Midterm;
+
+Employee employee1 = new Employee("Shahd", "Kassem", 1250.00m);
+Employee employee2 = new Employee("Salama", "Bourhim", 5000.00m);
+Employee employee3 = new Employee("Aziz", "Krouna", 10000.00m);
+
+/*
+Console.Write($"Employee's First Name: {employee1.FirstName}\n" +
+              $"Employee's Last Name: {employee1.LastName}\n");
+Console.Write($"Employee's Monthly Salary: {employee1.MonthlySalary}\n" +
+              $"Employee's Yearly Salary: {employee1.MonthlySalary * 12:C}\n");
+Console.WriteLine($"Employee's Yearly Salary After 10% Raise: {employee1.MonthlySalary * 12 * 1.10m}");
+
+Console.WriteLine();
+
+Console.Write($"Employee's First Name: {employee2.FirstName}\n" +
+              $"Employee's Last Name: {employee2.LastName}\n");
+Console.Write($"Employee's Monthly Salary: {employee2.MonthlySalary}\n" +
+              $"Employee's Yearly Salary: {employee2.MonthlySalary * 12:C}\n");
+Console.WriteLine($"Employee's Yearly Salary After 10% Raise: {employee2.MonthlySalary * 12 * 1.10m}");
+*/
+
+DisplayEmployee(employee1);
+Console.WriteLine();
+DisplayEmployee(employee2);
+Console.WriteLine();
+DisplayEmployee(employee3);
+
+static void DisplayEmployee(Employee employee)
+{
+    Console.Write($"Employee's First Name: {employee.FirstName}\n" +
+                  $"Employee's Last Name: {employee.LastName}\n");
+    Console.Write($"Employee's Monthly Salary: {employee.MonthlySalary}\n" +
+                  $"Employee's Yearly Salary: {employee.MonthlySalary * 12:C}\n");
+    Console.WriteLine($"Employee's Yearly Salary After 10% Raise: {employee.MonthlySalary * 12 * 1.10m}");
+}
