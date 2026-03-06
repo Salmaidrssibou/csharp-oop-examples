@@ -1,0 +1,90 @@
+class Acount
+{
+public string Name ( get; set; } private decimal balance;
+// Account constructor that receives two paraneters
+
+public Account(string accountName, decinal initialBalance)
+{
+Name = accountane;
+Balance = initialBalance;
+}
+public decimal Balance
+{
+get{
+return balance;
+}
+private set // can be used only within the class
+
+if (value › 0.0m)
+{
+balance = value;
+}
+
+public void Deposit(decimal depositAnount)
+{
+if (depositAmount › 0.0m)
+{
+Balance = Balance + depositAnount;
+}
+}
+public void Debit(decimal withdrawAmount)
+{
+if (withdrawAmount > Balance)
+{
+Console MriteLine("Debit amount exceeded acount balance*);
+}
+else{
+balance - =withdrawAmount;
+}
+}
+}
+
+
+
+class AccountTest;
+{
+static void Main()
+{
+Account account 1= new Account"Jane Green", 50.00m);
+Account account2 = new Account("John Blue", -7.53m);
+// display initial balance of each object
+Console.WriteLine(
+$"(accountl.Name)'s balance: (account1, Balance:C)*);
+Console WriteLine(
+$"(account2. Name)'s balance: (account2. Balance: C)*);
+// propt for then read input
+Console Write("\nEnter deposit amount for accounti: *):
+decimal depositAmount = decinal. Parse(Console. ReadLine);
+Console.WriteLineC
+$"adding {depositAmount:C} to accounti balance\n");
+accountl. Deposit(depositAmount); // add to accounti's balance
+//display balances
+Console-WriteLineC
+$"(account1. Name) 's balance: (accountl. Balance: C) *);
+Console WriteLineC
+$"(account2.Name) 's balance: (account2. Balance: C)*);
+// prompt for then read input
+Console Write("\nEnter deposit amount for account2: *);
+depositAmount = decimal. Parse(Console.ReadLineO);
+Console WriteLineC
+$"adding {depositAmount:C} to account2 balance\n");
+account2. Deposit(depositAmount); // add to account2's balance
+/ display balances
+Console-WriteLineC
+$"(account1.Name)'s balance: (accountl. Balance: C)*);
+Console.WriteLineC
+$"(account2.Name}'s balance: (account2. Balance:C) *);
+Console. Write("\nEnter withdraw amount for accountl: ");
+decinal withdrawAmount = decimal. Parse(Console.ReadLineO);
+Console.writeLineC
+"withdrawing (withdrawAnount:C) to accountl balance\n"): accountl.Debit(withdrawAmount);
+Console.WriteLineC
+$"(account1. Name) 's balance: (accountl. Balance:C)*);
+Console. WriteLineC
+$"{account2. Name) 's balance: {account2. Balance: C}");
+Console.Write("\nEnter withdraw amount for accountz: *);
+withdrawAnount = decimal.Parse(Console.ReadLine);
+Console.WriteLine(
+S"withdrawing (withdrawAnount:C) to account2 balance\n"); account2. Debit(withdrawAmount);
+}
+}
