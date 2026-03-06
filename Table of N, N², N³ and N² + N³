@@ -1,0 +1,12 @@
+/ See https://aka.ms/new-console-template for more information
+
+Console.WriteLine("{0,-9}{1,-9}{2,-9}{3,-9}", "N", "N^2", "N^3", "N^2 + N^3");
+Console.WriteLine("");
+
+int i = 10;
+
+while (i <= 50)
+{
+    Console.WriteLine("{0,-9}{1,-9}{2,-9}{3,-9}", i, i * i, i * i * i, i * i + i * i * i);
+    i += 10;
+}
