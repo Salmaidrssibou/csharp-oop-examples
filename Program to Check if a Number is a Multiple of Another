@@ -1,0 +1,23 @@
+int n1;
+int n2;
+
+Console.Write("Enter an integer : ");
+n1 = int.Parse(Console.ReadLine());
+Console.Write("Enter another integer : ");
+n2 = int.Parse(Console.ReadLine());
+
+if (n2 == 0)
+{
+    Console.WriteLine("Division by zero is not allowed");
+}
+else
+{
+    if (n1 % n2 == 0)
+    {
+        Console.WriteLine(n1 + " is a multiple of " + n2);
+    }
+    else
+    {
+        Console.WriteLine(n1 + " is not a multiple of " + n2);
+    }
+}
