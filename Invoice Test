@@ -1,0 +1,65 @@
+Internal class Invoice 
+{
+public string PartNumber ( get; set; }
+public string PartDescription ( get; set; } 
+private int quantity;
+private decimal pricePerItem;
+
+public int Quantity
+{
+get 
+{
+return quantity;
+}
+set
+{
+ if (quantity >= 0)
+{
+quantity = value;
+}
+}
+}
+public decimal PricePerItem
+{
+get
+{
+return pricePeritem;
+}
+set
+{
+  {
+if(pricePerItem >= 0.00m)
+{
+pricePerItem = value;
+}
+}
+}
+}
+
+public Invoice (string pN, string pD,
+int q, decimal pI)
+{
+PartNumber= pN;
+PartDescription= pD; 
+quantity= q; 
+pricePerItem= pPI;
+}
+public decimal GetInvoiceAmount()
+{
+return PricePerItem * Quantity;
+}
+}
+}
+
+
+
+Invoice x1 = new Invoice("Mx001", "Philips Led", 2, 10.00m) ;
+Console. WriteLine("Your order");
+Console WriteLine("--
+1ー"）；
+Console WriteLine("Part Number " + x1. PartNumber);
+Console WriteLine("Part Description " + x1.PartDescription);
+Console WriteLine("Quantity " + x1. Quantity);
+Console WriteLine($"Price per item : {x1.PricePerItem:C}");
+Console WriteLine("");
+Console WriteLine($"In total : {x1. GetInvoiceAmount():C}");
