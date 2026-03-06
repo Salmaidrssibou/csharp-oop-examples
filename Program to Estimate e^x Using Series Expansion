@@ -1,0 +1,23 @@
+// See https://aka.ms/new-console-template for more information
+
+Console.Write("Enter x: ");
+double x = double.Parse(Console.ReadLine());
+
+Console.Write("Enter a number of terms to use: ");
+int t = int.Parse(Console.ReadLine());
+
+int i = 0;
+double power = 1.0;
+double factorial = 1.0;
+double sum = 0.0;
+
+while (i < t)
+{
+    sum += power / factorial;
+    i++;
+    power *= x;
+    factorial *= i;
+}
+
+Console.WriteLine($"Estimated e^{x} is {sum}");
+Console.Write($"Math.Pow is {Math.Pow(Math.E, x)}");
