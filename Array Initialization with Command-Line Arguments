@@ -1,0 +1,16 @@
+int size = 0;
+if (args.Length == 0)
+{
+size = 10;
+}
+else if (args.Length == 1)
+{
+size = int. Parse(args[0]);
+}
+int[ ] array = new int[size];
+Console WriteLine($" {"Index"}{"Value", 8}"); // headings
+// output each array element's value
+for (int counter = 0; counter < array Length; ++counter)
+{
+Console WriteLine($" {counter, 5} {array [counter], 8}");
+}
