@@ -1,0 +1,16 @@
+Random randomnumber = new Random;
+int die1; 
+int die2;
+var frequency = new int[13];
+
+  for (int i = 0; i < 36000; i++)
+{
+diel = randomnumber. Next(1, 7);
+die2 = randomnumber.Next(1, 7);
+int sum = diel + die2;
+frequency [sum] ++;
+}
+  for(int i = 2; i < frequency.Length; i++)
+{
+Console WriteLine($"The total frequency of sum fis is: (frequency[i]}");
+}
