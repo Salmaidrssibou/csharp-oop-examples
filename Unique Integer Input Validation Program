@@ -1,0 +1,41 @@
+int[] arr = new int[5];
+
+int currentNumOfElements = 0;
+
+for (int i = 0; i < 5; i++)
+{
+    Console.WriteLine();
+    Console.Write("Enter an integer: ");
+    int inputNum = int.Parse(Console.ReadLine());
+
+    while (inputNum < 10 || inputNum > 100)
+    {
+        Console.Write("The number you entered is not in [10,100]. ");
+        Console.Write("Enter again: ");
+        inputNum = int.Parse(Console.ReadLine());
+    }
+
+    bool isAlreadyEntered = false;
+
+    for (int j = 0; j < currentNumOfElements; j++)
+    {
+        if (inputNum == arr[j])
+        {
+            isAlreadyEntered = true;
+            break;
+        }
+    }
+
+    if (isAlreadyEntered == false)
+    {
+        arr[currentNumOfElements] = inputNum;
+        currentNumOfElements++;
+    }
+
+    Console.WriteLine();
+    Console.WriteLine("The current unique values are: ");
+    for (int k = 0; k < currentNumOfElements; k++)
+    {
+        Console.Write($"{arr[k]} ");
+    }
+}
