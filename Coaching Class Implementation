@@ -1,0 +1,32 @@
+internal class Coaching
+{
+    public string CoachingType { get; set; }
+    public int numberOfPlayers { get; set; }
+    public string Timing { get; set; }
+    public decimal Charge { get; set; }
+
+    public Coaching(string cT, int n, string t, decimal ch)
+    {
+        CoachingType = cT;
+        numberOfPlayers = n;
+        Timing = t;
+        Charge = ch;
+    }
+
+    public void DisplayDetails()
+    {
+        Console.WriteLine("---------------------");
+        Console.WriteLine($"{CoachingType}\t{numberOfPlayers}\t{Timing}\t{Charge:C}");
+        Console.WriteLine("---------------------");
+    }
+}
+
+
+Coaching x = new Coaching("Team", 4, "Fri 09:00", 1.00m);
+
+x.DisplayDetails();
+
+Console.WriteLine("I postpone the coaching to 10:00");
+x.Timing = "Fri 10:00";
+
+x.DisplayDetails();
