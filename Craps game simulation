@@ -1,0 +1,129 @@
+using System;
+
+class Craps
+{
+    
+    private static Random randomNumbers = new Random();
+
+   
+    private enum Status { Continue, Won, Lost }
+
+    
+    private enum DiceNames
+    {
+        SnakeEyes = 2,
+        Trey = 3,
+        Seven = 7,
+        YoLeven = 11,
+        BoxCars = 12
+    }
+
+    static void Main()
+    {
+        const int TOTAL_GAMES = 1000;
+
+        
+        int[] wins = new int[22];
+        int[] losses = new int[22];
+
+        int totalWins = 0;
+        int totalLosses = 0;
+        int totalRolls = 0;
+
+        
+        for (int i = 0; i < TOTAL_GAMES; i++)
+        {
+            int rollCount = 0;
+            Status gameStatus = Status.Continue;
+            int myPoint = 0;
+
+            
+            int sumOfDice = RollDice();
+            rollCount++;
+
+            switch ((DiceNames)sumOfDice)
+            {
+                case DiceNames.Seven:
+                case DiceNames.YoLeven:
+                    gameStatus = Status.Won;
+                    break;
+                case DiceNames.SnakeEyes:
+                case DiceNames.Trey:
+                case DiceNames.BoxCars:
+                    gameStatus = Status.Lost;
+                    break;
+                default:
+                    gameStatus = Status.Continue;
+                    myPoint = sumOfDice;
+                    break;
+            }
+
+            
+            while (gameStatus == Status.Continue)
+            {
+                sumOfDice = RollDice();
+                rollCount++;
+
+                if (sumOfDice == myPoint)
+                {
+                    gameStatus = Status.Won;
+                }
+                else if (sumOfDice == (int)DiceNames.Seven)
+                {
+                    gameStatus = Status.Lost;
+                }
+            }
+
+            
+            totalRolls += rollCount; 
+
+            
+            int index = (rollCount > 20) ? 21 : rollCount;
+
+            if (gameStatus == Status.Won)
+            {
+                wins[index]++;
+                totalWins++;
+            }
+            else
+            {
+                losses[index]++;
+                totalLosses++;
+            }
+        }
+
+       
+        Console.WriteLine($"\nResults after {TOTAL_GAMES} games:\n");
+
+        
+        Console.WriteLine("{0,-10} {1,-15} {2,-15}", "Rolls", "Games Won", "Games Lost");
+        
+
+        for (int i = 1; i <= 21; i++)
+        {
+            string label = (i == 21) ? "> 20" : i.ToString();
+            Console.WriteLine("{0,-10} {1,-15} {2,-15}", label, wins[i], losses[i]);
+        }
+
+        
+
+        
+        
+        double winPercentage = (double)totalWins / TOTAL_GAMES * 100;
+        Console.WriteLine($"\nTotal Wins: {totalWins}");
+        Console.WriteLine($"Total Losses: {totalLosses}");
+        Console.WriteLine($"Chances of winning: {winPercentage:F2}%");
+
+        
+        double averageLength = (double)totalRolls / TOTAL_GAMES;
+        Console.WriteLine($"Average length of a game: {averageLength:F2} rolls");
+    }
+
+    
+    static int RollDice()
+    {
+        int die1 = randomNumbers.Next(1, 7);
+        int die2 = randomNumbers.Next(1, 7);
+        return die1 + die2;
+    }
+}
