@@ -1,0 +1,23 @@
+int number;
+int counter = 1;
+int largest;
+
+Console.Write("Enter an integer : ");
+largest = int.Parse(Console.ReadLine());
+
+counter = 2;
+while (counter <= 10)
+{
+    Console.Write("Enter an integer : ");
+    number = int.Parse(Console.ReadLine());
+
+    if (number > largest)
+    {
+        largest = number;
+    }
+
+    counter++;
+}
+
+Console.WriteLine($"Max = {largest}");
+Console.ReadLine();
