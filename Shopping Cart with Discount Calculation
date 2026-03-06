@@ -1,0 +1,44 @@
+int quantity;
+int i = 1;
+decimal pricePerItem;
+decimal totalBeforeDiscount = 0.0m;
+decimal totalAfterDiscount = 0.0m;
+decimal amountOfDiscount;
+
+Console.WriteLine("1) Add item: ");
+Console.WriteLine("2) End shopping");
+
+i = int.Parse(Console.ReadLine());
+
+while (i == 1)
+{
+    Console.WriteLine("Enter quantity: ");
+    quantity = int.Parse(Console.ReadLine());
+
+    Console.Write("Enter price per item: ");
+    pricePerItem = int.Parse(Console.ReadLine());
+
+    totalBeforeDiscount += (decimal)quantity * pricePerItem;
+
+    Console.WriteLine("1) Add item: ");
+    Console.WriteLine("2) End shopping");
+    i = int.Parse(Console.ReadLine());
+}
+
+Console.WriteLine($"Total before discount : {totalBeforeDiscount:C}");
+
+if (totalBeforeDiscount <= 5000)
+{
+    amountOfDiscount = (decimal)0.1 * totalBeforeDiscount;
+}
+else
+{
+    amountOfDiscount = (decimal)0.1 * totalBeforeDiscount;
+    amountOfDiscount = amountOfDiscount + (decimal)0.1 * (totalBeforeDiscount - amountOfDiscount);
+}
+
+Console.WriteLine($"Amount of discount applicable : {amountOfDiscount:C}");
+
+totalAfterDiscount = totalBeforeDiscount - amountOfDiscount;
+
+Console.WriteLine($"Amount payable : {totalAfterDiscount}");
