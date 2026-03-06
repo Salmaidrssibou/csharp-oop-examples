@@ -1,0 +1,33 @@
+int i;
+int j;
+int k;
+
+for (i = 1; i < 5; i++)
+{
+    for (j = 0; j < 5 - i; j++)
+    {
+        Console.Write(" ");
+    }
+
+    for (k = 0; k < 2 * i - 1; k++)
+    {
+        Console.Write("*");
+    }
+
+    Console.WriteLine();
+}
+
+for (i = 5; i >= 1; i--)
+{
+    for (j = 0; j < 5 - i; j++)
+    {
+        Console.Write(" ");
+    }
+
+    for (k = 0; k < 2 * i - 1; k++)
+    {
+        Console.Write("*");
+    }
+
+    Console.WriteLine();
+}
