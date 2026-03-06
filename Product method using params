@@ -1,0 +1,18 @@
+static int Product (params int[] numbers)
+{
+var result = 1;
+foreach(var n in numbers)
+{
+result *= n;
+}
+return result;
+}
+var n1 = 3;
+var n2 = 4;
+var n3 = 5;
+var n4 = 6;
+var n5 = 7;
+Console WriteLine($"n1 = in1} nn2 = in2} (nn3 = {n3} nn4 = {n43 nn5 = in53\n") ;
+Console WriteLine($"Product of nl and n2 is: {Product(n1, n2)}");
+Console WriteLine($"Product of nl, n2 and n3 is: {Product(n1, n2, n3)}");
+Console WriteLine($"Product of all numbers is: {Product(n1, n2, n3, n4, n5)}");
