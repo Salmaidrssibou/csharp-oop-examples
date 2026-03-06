@@ -1,0 +1,180 @@
+class Airplane
+{
+
+
+static int FCCap = 5;
+static int EconCap = 5;
+static int Cap = FCCap + EconCap;
+static void Main(string[] args)
+{
+
+
+    bool[] seats = new bool[Cap];
+
+    for (int i = 0; i < seats.Length; i++)
+    {
+        seats[i] = false;
+    }
+
+    if (isPlaneFull(seats) == true)
+    {
+        Console.WriteLine("The plane is full.");
+    }
+    else
+    {
+
+    Console.WriteLine("-- Airline Reservation --");
+
+    String[] menuItems = new string[3];
+
+    menuItems[0] = "Reserve seat";
+    menuItems[1] = "Show seating chart";
+    menuItems[2] = "Exit";
+
+    int input;
+
+    do
+{
+        for (int i = 0; i < menuItems.Length; i++)
+        {
+            Console.WriteLine($"{i + 1}) {menuItems[i]}");
+        }
+
+        input = int.Parse(Console.ReadLine());
+
+        if(input == 1){
+            reserveSeat(seats);
+        }
+        else if ( input == 2)
+        {
+            showSeatingChart(seats);
+        }
+
+
+    } while(input != 3);
+
+    }
+}
+
+static bool isPlaneFull(bool[] seats)
+{
+    bool x = true;
+    for(int i = 0; i< 10; i++)
+    {
+        if (seats[i] == false)
+        {
+            x = false; 
+            break;
+        }
+    }
+    return x;
+}
+
+
+static void reserveSeat(bool[] seats)
+{
+    String[] menuItems = new string[3];
+
+    menuItems[0] = "Reserve First Class";
+    menuItems[1] = "Reserve Economy Class";
+    menuItems[2] = "Go back to main menu";
+
+
+    int input = 0;
+    Console.WriteLine("Please type 1 for First Class and Please type 2 for Economy cLass: ");
+    input = int.Parse(Console.ReadLine());
+
+    if (input == 1)
+    {
+        reserveFirstClass(seats);
+    }
+    else if (input == 2) {
+        reserveEconomyClass(seats);
+    
+    }
+}
+
+static void reserveFirstClass(bool[] seats)
+{
+    bool x = true;
+    for (int i = 0; i < FCCap; i++)
+    {
+        if (seats[i] == false)
+        {
+            x = false;
+            seats[i] = true;
+            break;
+
+        }
+    }
+
+    if (x == true) {
+        char input;
+        Console.Write("The First Class is full, would you like a seat from economy? ");
+        input = char.Parse(Console.ReadLine());
+        if(input == 'y' && input == 'Y')
+        {
+            reserveEconomyClass(seats);
+        }
+        else
+        {
+            Console.WriteLine("Next flight leaves in 3 hours.");
+        }
+
+    }
+}
+
+static void reserveEconomyClass(bool[] seats)
+{
+    bool x = true;
+    for (int i = FCCap; i < Cap; i++)
+    {
+        if (seats[i] == false)
+        {
+            x = false;
+            seats[i] = true;
+            break;
+
+        }
+    }
+    if (x == true)
+    {
+        char input;
+        Console.Write("The Economy Class is full, would you like a seat from first class? ");
+        input = char.Parse(Console.ReadLine());
+        if (input == 'y' || input == 'Y')
+        {
+            reserveFirstClass(seats);
+        }
+        else
+        {
+            Console.WriteLine("Next flight leaves in 3 hours.");
+        }
+
+    }
+}
+
+static void showSeatingChart(bool[] seats)
+{
+    int i = 0;
+    while (i < Cap)
+    {
+        Console.WriteLine(" _ ");
+        if(seats[i] == false)
+        {
+            Console.WriteLine($"|{i + 1,3}|");
+        }
+        else
+        {
+            Console.WriteLine($"|{"X",3}|");
+            Console.WriteLine(" _ ");
+            Console.WriteLine();
+            
+        }
+            i++;
+            Console.WriteLine();
+        }
+    
+
+}
+}
